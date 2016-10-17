@@ -4,17 +4,17 @@
  * License: MIT
  */
 
-import {Entity, CompositeDecorator} from "draft-js";
+import {CompositeDecorator} from "draft-js";
 
 import Link from "./components/Link";
 
-function findLinkEntities(contentBlock, callback) {
+function findLinkEntities(contentState, contentBlock, callback) {
   contentBlock.findEntityRanges(
     (character) => {
       const entityKey = character.getEntity();
       return (
         entityKey !== null &&
-        Entity.get(entityKey).getType() === "LINK"
+        contentState.getEntity(entityKey).getType() === 'LINK'
       );
     },
     callback
