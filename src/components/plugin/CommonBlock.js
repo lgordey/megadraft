@@ -6,7 +6,6 @@
 
 import React, {Component} from "react";
 
-import Dropdown from "../../components/Dropdown";
 import {
   BlockActionGroup,
   BlockControls,
@@ -41,11 +40,7 @@ export default class CommonBlock extends Component {
     return (
       <BlockWrapper>
         <BlockControls>
-          <Dropdown
-            items={options.displayOptions}
-            selected={data.display || options.defaultDisplay}
-            onChange={this._handleDisplayChange} />
-
+          <div className='block__label'>{data.label}</div>
           <BlockActionGroup items={this.props.actions} />
         </BlockControls>
 
