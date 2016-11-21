@@ -36,6 +36,8 @@ export default class MegadraftEditor extends Component {
     this.actions = this.props.actions || DEFAULT_ACTIONS;
     this.plugins = this.getValidPlugins();
 
+    this.config = this.props.config || null;
+
     this.pluginsByType = this.getPluginsByType();
 
     this.keyBindings = this.props.keyBindings || [];
@@ -135,6 +137,7 @@ export default class MegadraftEditor extends Component {
         component: Media,
         editable: false,
         props: {
+          config: this.props.config,
           plugin: typedPlugin,
           onChange: this.onChange,
           editorState: this.props.editorState,
